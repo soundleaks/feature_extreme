@@ -1,0 +1,29 @@
+<div class="container">
+
+  <div ng-include="'components/navbar/navbar.html'"></div>
+
+  <div class="row">
+    <div class="small-12 large-6 columns" ng-repeat="songList in songLists | orderBy:'name'">
+      <div>
+        <div class="text-center">
+          <h3>{{songList.name}}</h3>
+          <p><a ng-href="{{songList.url}}">{{songList.url}}</a></p>
+          <img ng-src="{{songList.img}}" width="300px">
+          <ul class="song-list no-bullet">
+            <li ng-repeat="song in songList.songs|limitTo: 5">
+              {{song.title}} <span class="secondary radius label">by</span> {{song.artist}}
+            </li>
+          </ul>
+          <a class="button secondary" ng-href="{{songList.url}}">更多……</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <hr>
+      <p>for soundleaks #0</p>
+    </div>
+  </div>
+</div>
